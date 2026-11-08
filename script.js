@@ -94,4 +94,24 @@ contactForm.addEventListener("submit", function(event) {
     window.location.href = mailLink;
 
 });
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const recipient = "YOUR_EMAIL@gmail.com";
+
+    const subject = encodeURIComponent("Portfolio Contact Message");
+    const body = encodeURIComponent(
+        "Name: " + name +
+        "\nEmail: " + email +
+        "\nMessage: " + message
+    );
+
+    window.location.href =
+        "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
+});
+
     
